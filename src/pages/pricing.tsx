@@ -36,23 +36,23 @@ const TIERS = [
   },
   {
     nameId: "svc-pricing.cloud.name", name: "Cloud",
-    priceId: "svc-pricing.cloud.price", price: "Pay-per-use",
+    priceId: "svc-pricing.cloud.price", price: "Coming Soon",
     descId: "svc-pricing.cloud.desc", desc: "Managed hosting with usage-based billing. No upfront costs.",
     features: ["Managed infrastructure", "Automatic scaling", "99.9% SLA", "Email support"],
-    ctaId: "svc-pricing.cloud.cta", cta: "Coming Soon",
+    ctaId: "svc-pricing.cloud.cta", cta: "Join Waitlist",
     ctaHref: "mailto:hello@almadar.io",
     highlighted: true,
     badge: "Coming Soon",
   },
   {
     nameId: "svc-pricing.enterprise.name", name: "Enterprise",
-    priceId: "svc-pricing.enterprise.price", price: "Custom",
+    priceId: "svc-pricing.enterprise.price", price: "Coming Soon",
     descId: "svc-pricing.enterprise.desc", desc: "Dedicated infrastructure, custom SLAs, and priority support.",
     features: ["Dedicated cluster", "Custom AI models", "On-premise option", "24/7 support", "Custom SLA"],
     ctaId: "svc-pricing.enterprise.cta", cta: "Contact Us",
     ctaHref: "mailto:hello@almadar.io",
     highlighted: false,
-    badge: "",
+    badge: "Coming Soon",
   },
 ];
 
