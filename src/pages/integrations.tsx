@@ -1,120 +1,45 @@
 import React from "react";
 import type { ReactNode } from "react";
-import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
-import Heading from "@theme/Heading";
 import Translate, { translate } from "@docusaurus/Translate";
-import styles from "./integrations.module.css";
-
-function Hero() {
-  return (
-    <header className={styles.hero}>
-      <div className="container">
-        <span className={styles.tag}>
-          <Translate id="integrations.hero.tag">Connectors</Translate>
-        </span>
-        <Heading as="h1" className={styles.heroTitle}>
-          <Translate id="integrations.hero.title">Integrations</Translate>
-        </Heading>
-        <p className={styles.heroSubtitle}>
-          <Translate id="integrations.hero.subtitle">
-            Pre-built connectors for the services your applications need. No glue code required.
-          </Translate>
-        </p>
-      </div>
-    </header>
-  );
-}
+import {
+  HeroSection,
+  SplitSection,
+  FeatureGrid,
+  CTABanner,
+  ContentSection,
+} from "@almadar/ui/marketing";
 
 const INTEGRATIONS = [
   {
-    titleId: "integrations.stripe.title", title: "Stripe",
-    descId: "integrations.stripe.desc", desc: "Payment processing, subscriptions, invoicing, and webhook handling. Connect your .orb application to Stripe in one line.",
-    category: "Payments",
+    title: translate({ id: "integrations.stripe.title", message: "Stripe" }),
+    description: translate({ id: "integrations.stripe.desc", message: "Payment processing, subscriptions, invoicing, and webhook handling. Connect your .orb application to Stripe in one line." }),
   },
   {
-    titleId: "integrations.twilio.title", title: "Twilio",
-    descId: "integrations.twilio.desc", desc: "SMS, voice calls, and WhatsApp messaging. Send notifications and receive user responses through Twilio's communication APIs.",
-    category: "Communication",
+    title: translate({ id: "integrations.twilio.title", message: "Twilio" }),
+    description: translate({ id: "integrations.twilio.desc", message: "SMS, voice calls, and WhatsApp messaging. Send notifications and receive user responses through Twilio's communication APIs." }),
   },
   {
-    titleId: "integrations.github.title", title: "GitHub",
-    descId: "integrations.github.desc", desc: "Repository management, issue tracking, pull requests, and webhooks. Automate development workflows.",
-    category: "Development",
+    title: translate({ id: "integrations.github.title", message: "GitHub" }),
+    description: translate({ id: "integrations.github.desc", message: "Repository management, issue tracking, pull requests, and webhooks. Automate development workflows." }),
   },
   {
-    titleId: "integrations.email.title", title: "Email",
-    descId: "integrations.email.desc", desc: "Transactional email with templates, attachments, and delivery tracking. Built on SendGrid and Amazon SES.",
-    category: "Communication",
+    title: translate({ id: "integrations.email.title", message: "Email" }),
+    description: translate({ id: "integrations.email.desc", message: "Transactional email with templates, attachments, and delivery tracking. Built on SendGrid and Amazon SES." }),
   },
   {
-    titleId: "integrations.youtube.title", title: "YouTube",
-    descId: "integrations.youtube.desc", desc: "Video embedding, playlist management, and analytics. Pull video metadata and display content natively.",
-    category: "Media",
+    title: translate({ id: "integrations.youtube.title", message: "YouTube" }),
+    description: translate({ id: "integrations.youtube.desc", message: "Video embedding, playlist management, and analytics. Pull video metadata and display content natively." }),
   },
   {
-    titleId: "integrations.docker.title", title: "Docker",
-    descId: "integrations.docker.desc", desc: "Container orchestration for custom services. Deploy additional backend services alongside your .orb application.",
-    category: "Infrastructure",
+    title: translate({ id: "integrations.docker.title", message: "Docker" }),
+    description: translate({ id: "integrations.docker.desc", message: "Container orchestration for custom services. Deploy additional backend services alongside your .orb application." }),
   },
   {
-    titleId: "integrations.redis.title", title: "Redis",
-    descId: "integrations.redis.desc", desc: "In-memory caching, pub/sub messaging, and session storage. High-performance data layer for real-time features.",
-    category: "Infrastructure",
+    title: translate({ id: "integrations.redis.title", message: "Redis" }),
+    description: translate({ id: "integrations.redis.desc", message: "In-memory caching, pub/sub messaging, and session storage. High-performance data layer for real-time features." }),
   },
 ];
-
-function IntegrationsGrid() {
-  return (
-    <section className={styles.section}>
-      <div className="container">
-        <div className="row align-items--center">
-          <div className="col col--6">
-            <div className={styles.sectionHeader} style={{ textAlign: "left", marginBottom: "2rem" }}>
-              <Heading as="h2">
-                <Translate id="integrations.catalog.title">Integration Catalog</Translate>
-              </Heading>
-            </div>
-            <div className={styles.integrationsGrid}>
-              {INTEGRATIONS.map((item) => (
-                <div key={item.titleId} className={styles.integrationCard}>
-                  <span className={styles.integrationCategory}>{item.category}</span>
-                  <h3><Translate id={item.titleId}>{item.title}</Translate></h3>
-                  <p><Translate id={item.descId}>{item.desc}</Translate></p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="col col--6">
-            <img src="/img/integrations-connectors.webp" alt="Integration connectors" className={styles.sectionImage} loading="lazy" style={{ margin: 0 }} />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTASection() {
-  return (
-    <section className={`${styles.section} ${styles.sectionDark}`}>
-      <div className="container">
-        <div className={styles.ctaContent}>
-          <Heading as="h2" className={styles.ctaTitle}>
-            <Translate id="integrations.cta.title">Explore Other Layers</Translate>
-          </Heading>
-          <div className={styles.buttons}>
-            <Link className="button button--primary button--lg" to="/brains">
-              <Translate id="integrations.cta.brains">AI Services</Translate>
-            </Link>
-            <Link className="button button--secondary button--lg" to="/metal">
-              <Translate id="integrations.cta.metal">Metal Services</Translate>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function Integrations(): ReactNode {
   return (
@@ -122,11 +47,29 @@ export default function Integrations(): ReactNode {
       title={translate({ id: "integrations.meta.title", message: "Integrations — Service Connectors" })}
       description={translate({ id: "integrations.meta.desc", message: "Stripe, Twilio, GitHub, Email, YouTube, Docker, and Redis. Pre-built connectors." })}
     >
-      <Hero />
-      <main>
-        <IntegrationsGrid />
-        <CTASection />
-      </main>
+      <HeroSection
+        tag={translate({ id: "integrations.hero.tag", message: "Connectors" })}
+        title={translate({ id: "integrations.hero.title", message: "Integrations" })}
+        subtitle={translate({ id: "integrations.hero.subtitle", message: "Pre-built connectors for the services your applications need. No glue code required." })}
+      />
+
+      <ContentSection>
+        <SplitSection
+          title={translate({ id: "integrations.catalog.title", message: "Integration Catalog" })}
+          description=""
+          image={{ src: "/img/integrations-connectors.webp", alt: "Integration connectors" }}
+          imagePosition="right"
+        >
+          <FeatureGrid items={INTEGRATIONS} columns={2} gap="sm" />
+        </SplitSection>
+      </ContentSection>
+
+      <CTABanner
+        title={translate({ id: "integrations.cta.title", message: "Explore Other Layers" })}
+        primaryAction={{ label: translate({ id: "integrations.cta.brains", message: "AI Services" }), href: "/brains" }}
+        secondaryAction={{ label: translate({ id: "integrations.cta.metal", message: "Metal Services" }), href: "/metal" }}
+        background="dark"
+      />
     </Layout>
   );
 }
