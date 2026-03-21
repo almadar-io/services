@@ -9,7 +9,9 @@ import {
   CTABanner,
   ContentSection,
   GradientDivider,
+  Box,
 } from "@almadar/ui/marketing";
+import { AvlClosedCircuit } from "@almadar/ui/illustrations";
 
 const SERVICES = [
   {
@@ -66,6 +68,26 @@ export default function Metal(): ReactNode {
         >
           <FeatureGrid items={SERVICES} columns={2} gap="sm" />
         </SplitSection>
+      </ContentSection>
+
+      <ContentSection background="alt">
+        <Box className="w-full max-w-4xl mx-auto py-6">
+          <AvlClosedCircuit
+            className="w-full"
+            states={[
+              { name: "Publish" },
+              { name: "Route" },
+              { name: "Deliver" },
+              { name: "Ack" },
+            ]}
+            transitions={[
+              { from: "Publish", to: "Route", event: "EMIT" },
+              { from: "Route", to: "Deliver", effects: ["call-service"] },
+              { from: "Deliver", to: "Ack", guard: "received" },
+              { from: "Ack", to: "Publish", event: "NEXT" },
+            ]}
+          />
+        </Box>
       </ContentSection>
 
       <CTABanner

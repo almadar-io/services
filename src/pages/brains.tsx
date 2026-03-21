@@ -9,7 +9,9 @@ import {
   CTABanner,
   ContentSection,
   GradientDivider,
+  Box,
 } from "@almadar/ui/marketing";
+import { AvlStateMachine } from "@almadar/ui/illustrations";
 
 const SERVICES = [
   {
@@ -66,6 +68,28 @@ export default function Brains(): ReactNode {
         >
           <FeatureGrid items={SERVICES} columns={2} gap="sm" />
         </SplitSection>
+      </ContentSection>
+
+      <ContentSection background="alt">
+        <Box className="w-full max-w-4xl mx-auto py-6">
+          <AvlStateMachine
+            className="w-full"
+            states={[
+              { name: "Idle", isInitial: true },
+              { name: "Planning" },
+              { name: "Executing" },
+              { name: "Verifying" },
+              { name: "Done", isTerminal: true },
+            ]}
+            transitions={[
+              { from: "Idle", to: "Planning", event: "REQUEST" },
+              { from: "Planning", to: "Executing", effects: ["call-service"] },
+              { from: "Executing", to: "Verifying", guard: "check" },
+              { from: "Verifying", to: "Done", effects: ["render-ui"] },
+              { from: "Verifying", to: "Planning", event: "RETRY" },
+            ]}
+          />
+        </Box>
       </ContentSection>
 
       <CTABanner

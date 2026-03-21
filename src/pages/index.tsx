@@ -13,7 +13,7 @@ import {
   Box,
   GradientDivider,
 } from "@almadar/ui/marketing";
-import { ServiceLayers as ServiceLayersIllustration, EventBus } from "@almadar/ui/illustrations";
+import { AvlOrbital, AvlEntity, AvlBinding, AvlEmitListen } from "@almadar/ui/illustrations";
 import { OrbitalHeroBackground } from "../components/OrbitalHeroBackground";
 
 const LAYERS = [
@@ -95,7 +95,16 @@ export default function ServicesHome(): ReactNode {
           </VStack>
           <FeatureGrid items={LAYERS} columns={3} />
           <Box className="w-full max-w-4xl mx-auto py-6">
-            <ServiceLayersIllustration className="w-full" />
+            <svg viewBox="0 0 600 400" fill="none" className="w-full">
+              <AvlOrbital cx={300} cy={70} r={55} label="Brains" color="#a78bfa" />
+              <AvlEntity x={300} y={70} r={18} fieldCount={3} color="#a78bfa" />
+              <AvlBinding x1={300} y1={125} x2={300} y2={145} color="#a78bfa" />
+              <AvlOrbital cx={300} cy={200} r={55} label="Metal" color="#60a5fa" />
+              <AvlEntity x={300} y={200} r={18} fieldCount={4} color="#60a5fa" />
+              <AvlBinding x1={300} y1={255} x2={300} y2={275} color="#60a5fa" />
+              <AvlOrbital cx={300} cy={330} r={55} label="Integrations" color="#34d399" />
+              <AvlEntity x={300} y={330} r={18} fieldCount={5} color="#34d399" />
+            </svg>
           </Box>
         </VStack>
       </ContentSection>
@@ -108,7 +117,7 @@ export default function ServicesHome(): ReactNode {
             <Translate id="services.catalog.title">Service Catalog</Translate>
           </Typography>
           <Box className="w-full max-w-4xl mx-auto py-6">
-            <EventBus className="w-full" />
+            <AvlEmitListen className="w-full" emitter={{ name: "Service A", fields: 3 }} listener={{ name: "Service B", fields: 2 }} eventName="EVENT" />
           </Box>
           <ServiceCatalog services={CATALOG} />
         </VStack>
