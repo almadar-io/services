@@ -10,8 +10,10 @@ import {
   CTABanner,
   VStack,
   Typography,
+  Box,
   GradientDivider,
 } from "@almadar/ui/marketing";
+import { ServiceLayers as ServiceLayersIllustration, EventBus } from "@almadar/ui/illustrations";
 import { OrbitalHeroBackground } from "../components/OrbitalHeroBackground";
 
 const LAYERS = [
@@ -92,6 +94,9 @@ export default function ServicesHome(): ReactNode {
             </Typography>
           </VStack>
           <FeatureGrid items={LAYERS} columns={3} />
+          <Box className="flex justify-center py-8 opacity-80">
+            <ServiceLayersIllustration className="w-full max-w-2xl" />
+          </Box>
         </VStack>
       </ContentSection>
 
@@ -102,6 +107,9 @@ export default function ServicesHome(): ReactNode {
           <Typography variant="h2">
             <Translate id="services.catalog.title">Service Catalog</Translate>
           </Typography>
+          <Box className="flex justify-center py-8 opacity-80">
+            <EventBus className="w-full max-w-2xl" />
+          </Box>
           <ServiceCatalog services={CATALOG} />
         </VStack>
       </ContentSection>
