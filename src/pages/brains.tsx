@@ -8,6 +8,7 @@ import {
   FeatureGrid,
   CTABanner,
   ContentSection,
+  GradientDivider,
 } from "@almadar/ui/marketing";
 
 const SERVICES = [
@@ -51,7 +52,10 @@ export default function Brains(): ReactNode {
         tag={translate({ id: "brains.hero.tag", message: "AI Layer" })}
         title={translate({ id: "brains.hero.title", message: "Brains" })}
         subtitle={translate({ id: "brains.hero.subtitle", message: "The intelligence layer. LLM orchestration, memory, sessions, and autonomous agents." })}
+        className="min-h-[50vh]"
       />
+
+      <GradientDivider />
 
       <ContentSection>
         <SplitSection

@@ -8,6 +8,7 @@ import {
   FeatureGrid,
   CTABanner,
   ContentSection,
+  GradientDivider,
 } from "@almadar/ui/marketing";
 
 const INTEGRATIONS = [
@@ -51,7 +52,10 @@ export default function Integrations(): ReactNode {
         tag={translate({ id: "integrations.hero.tag", message: "Connectors" })}
         title={translate({ id: "integrations.hero.title", message: "Integrations" })}
         subtitle={translate({ id: "integrations.hero.subtitle", message: "Pre-built connectors for the services your applications need. No glue code required." })}
+        className="min-h-[50vh]"
       />
+
+      <GradientDivider />
 
       <ContentSection>
         <SplitSection

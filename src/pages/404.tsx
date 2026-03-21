@@ -8,12 +8,12 @@ export default function NotFound(): React.ReactNode {
     <Layout title="Page not found">
       <ContentSection padding="lg">
         <VStack gap="md" align="center" className="min-h-[60vh] justify-center">
-          <Typography variant="caption" className="uppercase tracking-widest">Status</Typography>
+          <Typography variant="caption" className="uppercase tracking-widest">Page not found</Typography>
           <Typography variant="h1">404</Typography>
-          <Typography variant="body" color="danger" className="font-mono">SERVICE_NOT_PROVISIONED</Typography>
+          <Typography variant="body" color="muted" className="font-mono">Page not found</Typography>
           <Typography variant="body" color="muted" className="max-w-[480px] text-center">
-            This service endpoint hasn't been provisioned. The resource
-            you requested doesn't exist or has been decommissioned.
+            The page you are looking for does not exist or has been moved.
+            Try heading back to the homepage.
           </Typography>
           <Link to="/">
             <Button variant="primary" size="lg">Back to Services</Button>

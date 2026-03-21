@@ -10,6 +10,7 @@ import {
   CTABanner,
   VStack,
   Typography,
+  GradientDivider,
 } from "@almadar/ui/marketing";
 
 const LAYERS = [
@@ -93,6 +94,8 @@ export default function ServicesHome(): ReactNode {
           <FeatureGrid items={LAYERS} columns={3} />
         </VStack>
       </ContentSection>
+
+      <GradientDivider />
 
       <ContentSection background="alt">
         <VStack gap="lg" align="center" className="container">

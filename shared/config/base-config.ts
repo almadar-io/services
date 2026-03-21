@@ -25,10 +25,11 @@ interface SiteConfig {
 }
 
 const SITE_ICONS: Record<string, { logo: string; favicon: string }> = {
-  main: { logo: "img/almadar-icon-512.png", favicon: "img/favicon.ico" },
-  orb: { logo: "img/orb-icon-512.png", favicon: "img/favicon.ico" },
-  studio: { logo: "img/studio-icon.svg", favicon: "img/favicon.ico" },
-  services: { logo: "img/services-icon.svg", favicon: "img/favicon.ico" },
+  main: { logo: "img/almadar-icon-transparent.svg", favicon: "img/almadar-icon-transparent.svg" },
+  orb: { logo: "img/orb-icon-transparent.svg", favicon: "img/orb-icon-transparent.svg" },
+  studio: { logo: "img/studio-icon-transparent.svg", favicon: "img/studio-icon-transparent.svg" },
+  services: { logo: "img/services-icon-transparent.svg", favicon: "img/services-icon-transparent.svg" },
+  masar: { logo: "img/masar-icon.svg", favicon: "img/masar-icon.svg" },
 };
 
 const PRODUCT_SITES = [

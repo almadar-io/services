@@ -47,11 +47,24 @@
     --paper-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
 
     /* === Docusaurus IFM overrides === */
-    --ifm-color-primary: var(--site-primary);
-    --ifm-color-primary-dark: var(--site-primary-dark);
-    --ifm-color-primary-light: var(--site-primary-light);
-    --ifm-link-color: var(--site-primary);
+    /* Use --color-primary from @almadar/ui theme, falling back to --site-primary */
+    --ifm-color-primary: var(--color-primary, var(--site-primary));
+    --ifm-color-primary-dark: var(--color-primary-hover, var(--site-primary-dark));
+    --ifm-color-primary-light: var(--color-primary, var(--site-primary-light));
+    --ifm-link-color: var(--color-primary, var(--site-primary));
     --docusaurus-highlighted-code-line-bg: rgba(20, 184, 166, 0.1);
+
+    /* === Navbar IFM mappings === */
+    --ifm-navbar-background-color: var(--color-background, var(--site-bg));
+    --ifm-navbar-link-color: var(--color-foreground, #0f172a);
+    --ifm-navbar-link-hover-color: var(--color-primary, var(--site-primary));
+    --ifm-navbar-shadow: none;
+
+    /* === Docs sidebar & TOC IFM mappings === */
+    --ifm-toc-border-color: var(--color-border, rgba(20, 184, 166, 0.15));
+    --ifm-menu-color: var(--color-foreground, #0f172a);
+    --ifm-menu-color-active: var(--color-primary, var(--site-primary));
+    --ifm-menu-color-background-active: rgba(20, 184, 166, 0.08);
 }
 
 /* Arabic font for RTL */
@@ -60,16 +73,22 @@ html[lang="ar"], html[dir="rtl"] {
     --ifm-heading-font-family: "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Dark mode shared overrides */
+/* Dark mode shared overrides — uses theme CSS vars so each site's theme controls colors */
 [data-theme="dark"] {
-    --ifm-background-color: var(--almadar-midnight);
-    --ifm-background-surface-color: var(--almadar-midnight-light);
-    --ifm-navbar-background-color: rgba(2, 6, 23, 0.8);
-    --ifm-footer-background-color: var(--almadar-midnight-dark);
-    --ifm-font-color-base: var(--almadar-parchment);
-    --ifm-heading-color: var(--almadar-parchment);
-    --ifm-link-color: var(--site-primary-light);
+    --ifm-background-color: var(--color-background, var(--almadar-midnight));
+    --ifm-background-surface-color: var(--color-surface, var(--almadar-midnight-light));
+    --ifm-navbar-background-color: var(--color-background, rgba(2, 6, 23, 0.8));
+    --ifm-footer-background-color: var(--color-background, var(--almadar-midnight-dark));
+    --ifm-font-color-base: var(--color-foreground, var(--almadar-parchment));
+    --ifm-heading-color: var(--color-foreground, var(--almadar-parchment));
+    --ifm-link-color: var(--color-primary, var(--site-primary-light));
     --docusaurus-highlighted-code-line-bg: rgba(20, 184, 166, 0.2);
+
+    /* === Docs sidebar & TOC dark mode === */
+    --ifm-toc-border-color: var(--color-border, rgba(20, 184, 166, 0.2));
+    --ifm-menu-color: var(--color-foreground, var(--almadar-parchment));
+    --ifm-menu-color-active: var(--color-primary, var(--site-primary-light));
+    --ifm-menu-color-background-active: rgba(20, 184, 166, 0.12);
 }
 
 /* Base styling */
@@ -77,7 +96,7 @@ html { scroll-behavior: smooth; }
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--site-bg);
+    background-color: var(--color-background, var(--site-bg));
 }
 
 /* Paper grain texture on light mode */

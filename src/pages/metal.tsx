@@ -8,6 +8,7 @@ import {
   FeatureGrid,
   CTABanner,
   ContentSection,
+  GradientDivider,
 } from "@almadar/ui/marketing";
 
 const SERVICES = [
@@ -51,7 +52,10 @@ export default function Metal(): ReactNode {
         tag={translate({ id: "metal.hero.tag", message: "Infrastructure Layer" })}
         title={translate({ id: "metal.hero.title", message: "Metal" })}
         subtitle={translate({ id: "metal.hero.subtitle", message: "The infrastructure layer. Event-driven compute, persistent storage, and platform services." })}
+        className="min-h-[50vh]"
       />
+
+      <GradientDivider />
 
       <ContentSection>
         <SplitSection
