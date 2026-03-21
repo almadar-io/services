@@ -77,8 +77,6 @@ export default function ServicesHome(): ReactNode {
         subtitle={translate({ id: "services.hero.subtitle", message: "AI-native compute, storage, and orchestration. Built for applications that agents create and operate." })}
         primaryAction={{ label: translate({ id: "services.hero.cta1", message: "View Pricing" }), href: "/pricing" }}
         secondaryAction={{ label: translate({ id: "services.hero.cta2", message: "Explore Services" }), href: "/brains" }}
-        image={{ src: "/img/hero-layers.webp", alt: "Three-layer architecture" }}
-        imagePosition="below"
       />
 
       <ContentSection>
