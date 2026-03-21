@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- G Orbital: 8 lobes (4 pairs at 45° spacing) -->
 <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <g id="lobe" stroke="#475569">
-            <ellipse cx="50" cy="28" rx="16" ry="20" fill="none" stroke-width="3" />
-            <ellipse cx="50" cy="72" rx="16" ry="20" fill="none" stroke-width="3" />
-            <ellipse cx="50" cy="32" rx="11" ry="14" fill="none" stroke-width="2" opacity="0.7" />
-            <ellipse cx="50" cy="68" rx="11" ry="14" fill="none" stroke-width="2" opacity="0.7" />
-            <ellipse cx="50" cy="36" rx="6" ry="8" fill="none" stroke-width="2" opacity="0.5" />
-            <ellipse cx="50" cy="64" rx="6" ry="8" fill="none" stroke-width="2" opacity="0.5" />
-        </g>
+        <linearGradient id="servicesGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#94a3b8" />
+            <stop offset="50%" stop-color="#64748b" />
+            <stop offset="100%" stop-color="#475569" />
+        </linearGradient>
     </defs>
-    <use href="#lobe" transform="rotate(0 50 50)" />
-    <use href="#lobe" transform="rotate(60 50 50)" />
-    <use href="#lobe" transform="rotate(120 50 50)" />
-    <circle cx="50" cy="50" r="6" fill="#475569" />
+    <!-- Pair 1: 0° -->
+    <ellipse cx="50" cy="30" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+    <ellipse cx="50" cy="70" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+    <!-- Pair 2: 45° -->
+    <g transform="rotate(45 50 50)">
+        <ellipse cx="50" cy="30" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+        <ellipse cx="50" cy="70" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+    </g>
+    <!-- Pair 3: 90° -->
+    <g transform="rotate(90 50 50)">
+        <ellipse cx="50" cy="30" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+        <ellipse cx="50" cy="70" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+    </g>
+    <!-- Pair 4: 135° -->
+    <g transform="rotate(135 50 50)">
+        <ellipse cx="50" cy="30" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+        <ellipse cx="50" cy="70" rx="10" ry="16" fill="none" stroke="url(#servicesGrad)" stroke-width="2" />
+    </g>
+    <!-- Inner shells (concentric, lighter) -->
+    <ellipse cx="50" cy="34" rx="6" ry="10" fill="none" stroke="url(#servicesGrad)" stroke-width="1.2" opacity="0.4" />
+    <ellipse cx="50" cy="66" rx="6" ry="10" fill="none" stroke="url(#servicesGrad)" stroke-width="1.2" opacity="0.4" />
+    <g transform="rotate(90 50 50)">
+        <ellipse cx="50" cy="34" rx="6" ry="10" fill="none" stroke="url(#servicesGrad)" stroke-width="1.2" opacity="0.4" />
+        <ellipse cx="50" cy="66" rx="6" ry="10" fill="none" stroke="url(#servicesGrad)" stroke-width="1.2" opacity="0.4" />
+    </g>
+    <!-- Center nucleus -->
+    <circle cx="50" cy="50" r="3" fill="url(#servicesGrad)" />
 </svg>

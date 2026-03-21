@@ -12,6 +12,7 @@ import {
   Typography,
   GradientDivider,
 } from "@almadar/ui/marketing";
+import { OrbitalHeroBackground } from "../components/OrbitalHeroBackground";
 
 const LAYERS = [
   {
@@ -77,6 +78,7 @@ export default function ServicesHome(): ReactNode {
         subtitle={translate({ id: "services.hero.subtitle", message: "AI-native compute, storage, and orchestration. Built for applications that agents create and operate." })}
         primaryAction={{ label: translate({ id: "services.hero.cta1", message: "View Pricing" }), href: "/pricing" }}
         secondaryAction={{ label: translate({ id: "services.hero.cta2", message: "Explore Services" }), href: "/brains" }}
+        backgroundElement={<OrbitalHeroBackground />}
       />
 
       <ContentSection>
