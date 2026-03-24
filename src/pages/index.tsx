@@ -95,15 +95,54 @@ export default function ServicesHome(): ReactNode {
           </VStack>
           <FeatureGrid items={LAYERS} columns={3} />
           <Box className="w-full max-w-4xl mx-auto py-6">
-            <svg viewBox="0 0 600 400" fill="none" className="w-full">
-              <AvlOrbital cx={300} cy={70} r={55} label="Brains" color="#a78bfa" />
-              <AvlEntity x={300} y={70} r={18} fieldCount={3} color="#a78bfa" />
-              <AvlBinding x1={300} y1={125} x2={300} y2={145} color="#a78bfa" />
-              <AvlOrbital cx={300} cy={200} r={55} label="Metal" color="#60a5fa" />
-              <AvlEntity x={300} y={200} r={18} fieldCount={4} color="#60a5fa" />
-              <AvlBinding x1={300} y1={255} x2={300} y2={275} color="#60a5fa" />
-              <AvlOrbital cx={300} cy={330} r={55} label="Integrations" color="#34d399" />
-              <AvlEntity x={300} y={330} r={18} fieldCount={5} color="#34d399" />
+            <svg viewBox="0 0 800 360" fill="none" className="w-full">
+              {/* Layer 1: Brains — three orbitals across */}
+              <AvlOrbital cx={200} cy={70} r={48} label="LLM" color="#a78bfa" />
+              <AvlEntity x={200} y={70} r={14} fieldCount={3} color="#a78bfa" />
+              <AvlOrbital cx={400} cy={70} r={48} label="DeepAgent" color="#a78bfa" />
+              <AvlEntity x={400} y={70} r={14} fieldCount={4} color="#a78bfa" />
+              <AvlOrbital cx={600} cy={70} r={48} label="Memory" color="#a78bfa" />
+              <AvlEntity x={600} y={70} r={14} fieldCount={2} color="#a78bfa" />
+              {/* Brains inter-connections */}
+              <AvlBinding x1={248} y1={70} x2={352} y2={70} color="#a78bfa" />
+              <AvlBinding x1={448} y1={70} x2={552} y2={70} color="#a78bfa" />
+              {/* Layer label */}
+              <text x={60} y={75} fill="#a78bfa" fontSize={13} fontFamily="inherit" fontWeight="bold" opacity={0.7}>Brains</text>
+
+              {/* Layer 2: Metal — three orbitals across */}
+              <AvlOrbital cx={200} cy={195} r={48} label="Events" color="#60a5fa" />
+              <AvlEntity x={200} y={195} r={14} fieldCount={5} color="#60a5fa" />
+              <AvlOrbital cx={400} cy={195} r={48} label="Storage" color="#60a5fa" />
+              <AvlEntity x={400} y={195} r={14} fieldCount={4} color="#60a5fa" />
+              <AvlOrbital cx={600} cy={195} r={48} label="Auth" color="#60a5fa" />
+              <AvlEntity x={600} y={195} r={14} fieldCount={3} color="#60a5fa" />
+              {/* Metal inter-connections */}
+              <AvlBinding x1={248} y1={195} x2={352} y2={195} color="#60a5fa" />
+              <AvlBinding x1={448} y1={195} x2={552} y2={195} color="#60a5fa" />
+              {/* Layer label */}
+              <text x={60} y={200} fill="#60a5fa" fontSize={13} fontFamily="inherit" fontWeight="bold" opacity={0.7}>Metal</text>
+
+              {/* Cross-layer bindings (Brains → Metal) */}
+              <AvlBinding x1={200} y1={118} x2={200} y2={147} color="#a78bfa" />
+              <AvlBinding x1={400} y1={118} x2={400} y2={147} color="#a78bfa" />
+              <AvlBinding x1={600} y1={118} x2={600} y2={147} color="#a78bfa" />
+
+              {/* Layer 3: Integrations — three orbitals across */}
+              <AvlOrbital cx={200} cy={315} r={40} label="Stripe" color="#34d399" />
+              <AvlEntity x={200} y={315} r={12} fieldCount={2} color="#34d399" />
+              <AvlOrbital cx={360} cy={315} r={40} label="Twilio" color="#34d399" />
+              <AvlEntity x={360} y={315} r={12} fieldCount={2} color="#34d399" />
+              <AvlOrbital cx={520} cy={315} r={40} label="GitHub" color="#34d399" />
+              <AvlEntity x={520} y={315} r={12} fieldCount={3} color="#34d399" />
+              <AvlOrbital cx={680} cy={315} r={40} label="Redis" color="#34d399" />
+              <AvlEntity x={680} y={315} r={12} fieldCount={2} color="#34d399" />
+              {/* Layer label */}
+              <text x={40} y={320} fill="#34d399" fontSize={13} fontFamily="inherit" fontWeight="bold" opacity={0.7}>Integrations</text>
+
+              {/* Cross-layer bindings (Metal → Integrations) */}
+              <AvlBinding x1={200} y1={243} x2={200} y2={275} color="#60a5fa" />
+              <AvlBinding x1={400} y1={243} x2={360} y2={275} color="#60a5fa" />
+              <AvlBinding x1={600} y1={243} x2={520} y2={275} color="#60a5fa" />
             </svg>
           </Box>
         </VStack>
