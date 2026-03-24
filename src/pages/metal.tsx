@@ -12,6 +12,8 @@ import {
   Box,
 } from "@almadar/ui/marketing";
 import { AvlClosedCircuit } from "@almadar/ui/illustrations";
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const SERVICES = [
   {
@@ -71,21 +73,14 @@ export default function Metal(): ReactNode {
       </ContentSection>
 
       <ContentSection background="alt">
-        <Box className="w-full max-w-4xl mx-auto py-6">
-          <AvlClosedCircuit
-            className="w-full"
-            states={[
-              { name: "Publish" },
-              { name: "Route" },
-              { name: "Deliver" },
-              { name: "Ack" },
-            ]}
-            transitions={[
-              { from: "Publish", to: "Route", event: "EMIT" },
-              { from: "Route", to: "Deliver", effects: ["call-service"] },
-              { from: "Deliver", to: "Ack", guard: "received" },
-              { from: "Ack", to: "Publish", event: "NEXT" },
-            ]}
+        <Box className="w-full max-w-[450px] mx-auto py-6">
+          <ThemedImage
+            alt="Metal Infrastructure Application Topology"
+            sources={{
+              light: useBaseUrl('/img/illustrations/Application-light.svg'),
+              dark: useBaseUrl('/img/illustrations/Application-dark.svg'),
+            }}
+            className="w-full drop-shadow-2xl "
           />
         </Box>
       </ContentSection>

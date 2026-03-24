@@ -9,7 +9,10 @@ import {
   CTABanner,
   ContentSection,
   GradientDivider,
+  Box,
 } from "@almadar/ui/marketing";
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const INTEGRATIONS = [
   {
@@ -52,7 +55,19 @@ export default function Integrations(): ReactNode {
         tag={translate({ id: "integrations.hero.tag", message: "Connectors" })}
         title={translate({ id: "integrations.hero.title", message: "Integrations" })}
         subtitle={translate({ id: "integrations.hero.subtitle", message: "Pre-built connectors for the services your applications need. No glue code required." })}
-        className="min-h-[50vh]"
+        className="!overflow-visible"
+        backgroundElement={
+          <Box className="absolute right-8 top-[15%] w-full max-w-[350px] pointer-events-none hidden lg:flex items-start">
+            <ThemedImage
+              alt="Services Integrations Array"
+              sources={{
+                light: useBaseUrl('/img/illustrations/Transition-light.svg'),
+                dark: useBaseUrl('/img/illustrations/Transition-dark.svg'),
+              }}
+              className="w-full opacity-90 drop-shadow-2xl "
+            />
+          </Box>
+        }
       />
 
       <GradientDivider />

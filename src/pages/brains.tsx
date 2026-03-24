@@ -12,6 +12,8 @@ import {
   Box,
 } from "@almadar/ui/marketing";
 import { AvlStateMachine } from "@almadar/ui/illustrations";
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const SERVICES = [
   {
@@ -71,23 +73,14 @@ export default function Brains(): ReactNode {
       </ContentSection>
 
       <ContentSection background="alt">
-        <Box className="w-full max-w-4xl mx-auto py-6">
-          <AvlStateMachine
-            className="w-full"
-            states={[
-              { name: "Idle", isInitial: true },
-              { name: "Planning" },
-              { name: "Executing" },
-              { name: "Verifying" },
-              { name: "Done", isTerminal: true },
-            ]}
-            transitions={[
-              { from: "Idle", to: "Planning", event: "REQUEST" },
-              { from: "Planning", to: "Executing", effects: ["call-service"] },
-              { from: "Executing", to: "Verifying", guard: "check" },
-              { from: "Verifying", to: "Done", effects: ["render-ui"] },
-              { from: "Verifying", to: "Planning", event: "RETRY" },
-            ]}
+        <Box className="w-full max-w-[450px] mx-auto py-6">
+          <ThemedImage
+            alt="AI Brains Services Topology"
+            sources={{
+              light: useBaseUrl('/img/illustrations/SExpr-light.svg'),
+              dark: useBaseUrl('/img/illustrations/SExpr-dark.svg'),
+            }}
+            className="w-full drop-shadow-2xl "
           />
         </Box>
       </ContentSection>
