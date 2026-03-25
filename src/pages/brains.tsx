@@ -3,15 +3,15 @@ import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import Translate, { translate } from "@docusaurus/Translate";
 import {
-  HeroSection,
-  SplitSection,
-  FeatureGrid,
-  CTABanner,
-  ContentSection,
-  GradientDivider,
   Box,
+  VStack,
+  HStack,
+  Typography,
+  Badge,
+  Button,
+  Card,
+  SimpleGrid,
 } from "@almadar/ui/marketing";
-import { AvlStateMachine } from "@almadar/ui/illustrations";
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -52,45 +52,82 @@ export default function Brains(): ReactNode {
       title={translate({ id: "brains.meta.title", message: "Brains — AI Services" })}
       description={translate({ id: "brains.meta.desc", message: "LLM orchestration, memory management, session handling, skill agents, and the DeepAgent." })}
     >
-      <HeroSection
-        tag={translate({ id: "brains.hero.tag", message: "AI Layer" })}
-        title={translate({ id: "brains.hero.title", message: "Brains" })}
-        subtitle={translate({ id: "brains.hero.subtitle", message: "The intelligence layer. LLM orchestration, memory, sessions, and autonomous agents." })}
-        className="min-h-[50vh]"
-      />
-
-      <GradientDivider />
-
-      <ContentSection>
-        <SplitSection
-          title={translate({ id: "brains.services.title", message: "AI Services" })}
-          description=""
-          image={{ src: "/img/brains-orchestration.webp", alt: "Agent orchestration" }}
-          imagePosition="right"
-        >
-          <FeatureGrid items={SERVICES} columns={2} gap="sm" />
-        </SplitSection>
-      </ContentSection>
-
-      <ContentSection background="alt">
-        <Box className="w-full max-w-[450px] mx-auto py-6">
-          <ThemedImage
-            alt="AI Brains Services Topology"
-            sources={{
-              light: useBaseUrl('/img/illustrations/SExpr-light.svg'),
-              dark: useBaseUrl('/img/illustrations/SExpr-dark.svg'),
-            }}
-            className="w-full drop-shadow-2xl "
-          />
+      {/* Hero */}
+      <Box as="header" className="w-full flex items-center relative overflow-hidden">
+        <Box className="site-container py-20 relative z-10">
+          <HStack gap="xl" className="flex-col lg:flex-row items-center">
+            <VStack gap="lg" align="start" className="flex-1">
+              <Badge variant="primary">{translate({ id: "brains.hero.tag", message: "AI Layer" })}</Badge>
+              <Typography variant="h1">{translate({ id: "brains.hero.title", message: "Brains" })}</Typography>
+              <Typography variant="body1" color="muted">{translate({ id: "brains.hero.subtitle", message: "The intelligence layer. LLM orchestration, memory, sessions, and autonomous agents." })}</Typography>
+            </VStack>
+            <Box className="flex-1 max-w-[300px]">
+              <ThemedImage
+                alt="AI Brains Services Topology"
+                sources={{
+                  light: useBaseUrl('/img/illustrations/SExpr-light.svg'),
+                  dark: useBaseUrl('/img/illustrations/SExpr-dark.svg'),
+                }}
+                className="w-full drop-shadow-2xl"
+              />
+            </Box>
+          </HStack>
         </Box>
-      </ContentSection>
+      </Box>
 
-      <CTABanner
-        title={translate({ id: "brains.cta.title", message: "Explore Other Layers" })}
-        primaryAction={{ label: translate({ id: "brains.cta.metal", message: "Metal Services" }), href: "/metal" }}
-        secondaryAction={{ label: translate({ id: "brains.cta.integrations", message: "Integrations" }), href: "/integrations" }}
-        background="dark"
+      {/* Gradient Divider */}
+      <Box
+        className="w-full h-px"
+        style={{ background: 'linear-gradient(to right, transparent, var(--color-primary), transparent)' }}
       />
+
+      {/* Split: Title + Feature Grid */}
+      <Box className="w-full">
+        <Box className="site-container py-24">
+          <Box className="w-full flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <Box className="flex-1 min-w-0 lg:min-w-[45%]">
+              <VStack gap="md">
+                <Typography variant="h2">{translate({ id: "brains.services.title", message: "AI Services" })}</Typography>
+              </VStack>
+            </Box>
+            <Box className="flex-1 min-w-0 lg:max-w-[50%]">
+              <SimpleGrid cols={2} gap="sm">
+                {SERVICES.map((service) => (
+                  <Card key={service.title} variant="bordered" padding="md" className="p-6">
+                    <VStack gap="sm" align="start">
+                      <Typography variant="h4">{service.title}</Typography>
+                      <Typography variant="body2" color="muted">{service.description}</Typography>
+                    </VStack>
+                  </Card>
+                ))}
+              </SimpleGrid>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* CTA Banner */}
+      <Box className="w-full bg-[var(--color-surface)]">
+        <Box className="site-container py-16">
+          <VStack gap="lg" align="center">
+            <Typography variant="h2" align="center">
+              {translate({ id: "brains.cta.title", message: "Explore Other Layers" })}
+            </Typography>
+            <Box className="flex gap-4">
+              <a href="/metal" className="no-underline" target="_blank" rel="noopener noreferrer">
+                <Button variant="primary" size="lg">
+                  {translate({ id: "brains.cta.metal", message: "Metal Services" })}
+                </Button>
+              </a>
+              <a href="/integrations" className="no-underline" target="_blank" rel="noopener noreferrer">
+                <Button variant="secondary" size="lg">
+                  {translate({ id: "brains.cta.integrations", message: "Integrations" })}
+                </Button>
+              </a>
+            </Box>
+          </VStack>
+        </Box>
+      </Box>
     </Layout>
   );
 }

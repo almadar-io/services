@@ -3,13 +3,14 @@ import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import Translate, { translate } from "@docusaurus/Translate";
 import {
-  HeroSection,
-  SplitSection,
-  FeatureGrid,
-  CTABanner,
-  ContentSection,
-  GradientDivider,
   Box,
+  VStack,
+  HStack,
+  Typography,
+  Badge,
+  Button,
+  Card,
+  SimpleGrid,
 } from "@almadar/ui/marketing";
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -51,44 +52,82 @@ export default function Integrations(): ReactNode {
       title={translate({ id: "integrations.meta.title", message: "Integrations — Service Connectors" })}
       description={translate({ id: "integrations.meta.desc", message: "Stripe, Twilio, GitHub, Email, YouTube, Docker, and Redis. Pre-built connectors." })}
     >
-      <HeroSection
-        tag={translate({ id: "integrations.hero.tag", message: "Connectors" })}
-        title={translate({ id: "integrations.hero.title", message: "Integrations" })}
-        subtitle={translate({ id: "integrations.hero.subtitle", message: "Pre-built connectors for the services your applications need. No glue code required." })}
-        className="!overflow-visible"
-        backgroundElement={
-          <Box className="absolute right-8 top-[15%] w-full max-w-[350px] pointer-events-none hidden lg:flex items-start">
-            <ThemedImage
-              alt="Services Integrations Array"
-              sources={{
-                light: useBaseUrl('/img/illustrations/Transition-light.svg'),
-                dark: useBaseUrl('/img/illustrations/Transition-dark.svg'),
-              }}
-              className="w-full opacity-90 drop-shadow-2xl "
-            />
+      {/* Hero */}
+      <Box as="header" className="w-full flex items-center relative overflow-hidden">
+        <Box className="site-container py-20 relative z-10">
+          <HStack gap="xl" className="flex-col lg:flex-row items-center">
+            <VStack gap="lg" align="start" className="flex-1">
+              <Badge variant="primary">{translate({ id: "integrations.hero.tag", message: "Connectors" })}</Badge>
+              <Typography variant="h1">{translate({ id: "integrations.hero.title", message: "Integrations" })}</Typography>
+              <Typography variant="body1" color="muted">{translate({ id: "integrations.hero.subtitle", message: "Pre-built connectors for the services your applications need. No glue code required." })}</Typography>
+            </VStack>
+            <Box className="flex-1 max-w-[300px]">
+              <ThemedImage
+                alt="Services Integrations Array"
+                sources={{
+                  light: useBaseUrl('/img/illustrations/Transition-light.svg'),
+                  dark: useBaseUrl('/img/illustrations/Transition-dark.svg'),
+                }}
+                className="w-full drop-shadow-2xl"
+              />
+            </Box>
+          </HStack>
+        </Box>
+      </Box>
+
+      {/* Gradient Divider */}
+      <Box
+        className="w-full h-px"
+        style={{ background: 'linear-gradient(to right, transparent, var(--color-primary), transparent)' }}
+      />
+
+      {/* Split: Title + Feature Grid */}
+      <Box className="w-full">
+        <Box className="site-container py-24">
+          <Box className="w-full flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <Box className="flex-1 min-w-0 lg:min-w-[45%]">
+              <VStack gap="md">
+                <Typography variant="h2">{translate({ id: "integrations.catalog.title", message: "Integration Catalog" })}</Typography>
+              </VStack>
+            </Box>
+            <Box className="flex-1 min-w-0 lg:max-w-[50%]">
+              <SimpleGrid cols={2} gap="sm">
+                {INTEGRATIONS.map((integration) => (
+                  <Card key={integration.title} variant="bordered" padding="md" className="p-6">
+                    <VStack gap="sm" align="start">
+                      <Typography variant="h4">{integration.title}</Typography>
+                      <Typography variant="body2" color="muted">{integration.description}</Typography>
+                    </VStack>
+                  </Card>
+                ))}
+              </SimpleGrid>
+            </Box>
           </Box>
-        }
-      />
+        </Box>
+      </Box>
 
-      <GradientDivider />
-
-      <ContentSection>
-        <SplitSection
-          title={translate({ id: "integrations.catalog.title", message: "Integration Catalog" })}
-          description=""
-          image={{ src: "/img/integrations-connectors.webp", alt: "Integration connectors" }}
-          imagePosition="right"
-        >
-          <FeatureGrid items={INTEGRATIONS} columns={2} gap="sm" />
-        </SplitSection>
-      </ContentSection>
-
-      <CTABanner
-        title={translate({ id: "integrations.cta.title", message: "Explore Other Layers" })}
-        primaryAction={{ label: translate({ id: "integrations.cta.brains", message: "AI Services" }), href: "/brains" }}
-        secondaryAction={{ label: translate({ id: "integrations.cta.metal", message: "Metal Services" }), href: "/metal" }}
-        background="dark"
-      />
+      {/* CTA Banner */}
+      <Box className="w-full bg-[var(--color-surface)]">
+        <Box className="site-container py-16">
+          <VStack gap="lg" align="center">
+            <Typography variant="h2" align="center">
+              {translate({ id: "integrations.cta.title", message: "Explore Other Layers" })}
+            </Typography>
+            <Box className="flex gap-4">
+              <a href="/brains" className="no-underline" target="_blank" rel="noopener noreferrer">
+                <Button variant="primary" size="lg">
+                  {translate({ id: "integrations.cta.brains", message: "AI Services" })}
+                </Button>
+              </a>
+              <a href="/metal" className="no-underline" target="_blank" rel="noopener noreferrer">
+                <Button variant="secondary" size="lg">
+                  {translate({ id: "integrations.cta.metal", message: "Metal Services" })}
+                </Button>
+              </a>
+            </Box>
+          </VStack>
+        </Box>
+      </Box>
     </Layout>
   );
 }
