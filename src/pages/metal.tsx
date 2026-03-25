@@ -10,37 +10,43 @@ import {
   Badge,
   Button,
   Card,
+  Icon,
   SimpleGrid,
 } from "@almadar/ui/marketing";
-import ThemedImage from '@theme/ThemedImage';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const SERVICES = [
   {
+    icon: "radio" as const,
     title: "Event Bus",
     description: "Publish-subscribe event routing with guaranteed delivery. Every state machine transition flows through the bus.",
   },
   {
+    icon: "hard-drive" as const,
     title: "Event Persistence",
     description: "Full event sourcing. Every event is stored, indexed, and replayable. Rebuild state from any point in time.",
   },
   {
+    icon: "search" as const,
     title: "Service Discovery",
     description: "Automatic service registration and discovery. Applications find each other without manual configuration.",
   },
   {
+    icon: "folder" as const,
     title: "Storage",
     description: "Object storage with CDN distribution. Files, images, and documents with automatic optimization.",
   },
   {
+    icon: "list-ordered" as const,
     title: "Queue",
     description: "Background job processing with retry logic, dead letter queues, and priority scheduling.",
   },
   {
+    icon: "shield" as const,
     title: "Auth",
     description: "Authentication and authorization. Email/password, OAuth providers, API keys, and role-based access control.",
   },
   {
+    icon: "activity" as const,
     title: "Observability",
     description: "Logs, metrics, and traces. See what every service and agent is doing in real time.",
   },
@@ -61,16 +67,6 @@ export default function Metal(): ReactNode {
               <Typography variant="h1">{translate({ id: "metal.hero.title", message: "Metal" })}</Typography>
               <Typography variant="body1" color="muted">{translate({ id: "metal.hero.subtitle", message: "The infrastructure layer. Event-driven compute, persistent storage, and platform services." })}</Typography>
             </VStack>
-            <Box className="flex-1 max-w-[300px]">
-              <ThemedImage
-                alt="Metal Infrastructure Application Topology"
-                sources={{
-                  light: useBaseUrl('/img/illustrations/Application-light.svg'),
-                  dark: useBaseUrl('/img/illustrations/Application-dark.svg'),
-                }}
-                className="w-full drop-shadow-2xl"
-              />
-            </Box>
           </HStack>
         </Box>
       </Box>
@@ -95,6 +91,7 @@ export default function Metal(): ReactNode {
                 {SERVICES.map((service) => (
                   <Card key={service.title} variant="bordered" padding="md" className="p-6">
                     <VStack gap="sm" align="start">
+                      <Icon name={service.icon} size={24} className="text-[var(--color-accent)]" />
                       <Typography variant="h4">{service.title}</Typography>
                       <Typography variant="body2" color="muted">{service.description}</Typography>
                     </VStack>

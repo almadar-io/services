@@ -10,37 +10,43 @@ import {
   Badge,
   Button,
   Card,
+  Icon,
   SimpleGrid,
 } from "@almadar/ui/marketing";
-import ThemedImage from '@theme/ThemedImage';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const INTEGRATIONS = [
   {
+    icon: "credit-card" as const,
     title: translate({ id: "integrations.stripe.title", message: "Stripe" }),
     description: translate({ id: "integrations.stripe.desc", message: "Payment processing, subscriptions, invoicing, and webhook handling. Connect your .orb application to Stripe in one line." }),
   },
   {
+    icon: "phone" as const,
     title: translate({ id: "integrations.twilio.title", message: "Twilio" }),
     description: translate({ id: "integrations.twilio.desc", message: "SMS, voice calls, and WhatsApp messaging. Send notifications and receive user responses through Twilio's communication APIs." }),
   },
   {
+    icon: "github" as const,
     title: translate({ id: "integrations.github.title", message: "GitHub" }),
     description: translate({ id: "integrations.github.desc", message: "Repository management, issue tracking, pull requests, and webhooks. Automate development workflows." }),
   },
   {
+    icon: "mail" as const,
     title: translate({ id: "integrations.email.title", message: "Email" }),
     description: translate({ id: "integrations.email.desc", message: "Transactional email with templates, attachments, and delivery tracking. Built on SendGrid and Amazon SES." }),
   },
   {
+    icon: "play-circle" as const,
     title: translate({ id: "integrations.youtube.title", message: "YouTube" }),
     description: translate({ id: "integrations.youtube.desc", message: "Video embedding, playlist management, and analytics. Pull video metadata and display content natively." }),
   },
   {
+    icon: "container" as const,
     title: translate({ id: "integrations.docker.title", message: "Docker" }),
     description: translate({ id: "integrations.docker.desc", message: "Container orchestration for custom services. Deploy additional backend services alongside your .orb application." }),
   },
   {
+    icon: "database" as const,
     title: translate({ id: "integrations.redis.title", message: "Redis" }),
     description: translate({ id: "integrations.redis.desc", message: "In-memory caching, pub/sub messaging, and session storage. High-performance data layer for real-time features." }),
   },
@@ -61,16 +67,6 @@ export default function Integrations(): ReactNode {
               <Typography variant="h1">{translate({ id: "integrations.hero.title", message: "Integrations" })}</Typography>
               <Typography variant="body1" color="muted">{translate({ id: "integrations.hero.subtitle", message: "Pre-built connectors for the services your applications need. No glue code required." })}</Typography>
             </VStack>
-            <Box className="flex-1 max-w-[300px]">
-              <ThemedImage
-                alt="Services Integrations Array"
-                sources={{
-                  light: useBaseUrl('/img/illustrations/Transition-light.svg'),
-                  dark: useBaseUrl('/img/illustrations/Transition-dark.svg'),
-                }}
-                className="w-full drop-shadow-2xl"
-              />
-            </Box>
           </HStack>
         </Box>
       </Box>
@@ -95,6 +91,7 @@ export default function Integrations(): ReactNode {
                 {INTEGRATIONS.map((integration) => (
                   <Card key={integration.title} variant="bordered" padding="md" className="p-6">
                     <VStack gap="sm" align="start">
+                      <Icon name={integration.icon} size={24} className="text-[var(--color-accent)]" />
                       <Typography variant="h4">{integration.title}</Typography>
                       <Typography variant="body2" color="muted">{integration.description}</Typography>
                     </VStack>

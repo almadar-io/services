@@ -13,9 +13,9 @@ import {
   Icon,
   SimpleGrid,
 } from "@almadar/ui/marketing";
-import { OrbitalHeroBackground } from "../components/OrbitalHeroBackground";
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { OrbitalHeroBackground } from "../components/OrbitalHeroBackground";
 
 const LAYERS = [
   {
@@ -42,28 +42,28 @@ const LAYERS = [
 ];
 
 const CATALOG = [
-  { name: "LLM Orchestrator", layer: "Brains" },
-  { name: "DeepAgent SDK", layer: "Brains" },
-  { name: "Semantic Memory", layer: "Brains" },
-  { name: "S-Expression Engine", layer: "Brains" },
-  { name: "Context Manager", layer: "Brains" },
-  { name: "Vector Search", layer: "Brains" },
-  { name: "Distributed Event Bus", layer: "Metal" },
-  { name: "Managed Authentication", layer: "Metal" },
-  { name: "Persistent Storage", layer: "Metal" },
-  { name: "Service Discovery", layer: "Metal" },
-  { name: "Observability Hub", layer: "Metal" },
-  { name: "Secret Manager", layer: "Metal" },
-  { name: "IAM & RBAC", layer: "Metal" },
-  { name: "VPC Networking", layer: "Metal" },
-  { name: "Stripe Connector", layer: "Integrations" },
-  { name: "Twilio Gateway", layer: "Integrations" },
-  { name: "GitHub Automations", layer: "Integrations" },
-  { name: "Firebase Sync", layer: "Integrations" },
-  { name: "PostgreSQL Bridge", layer: "Integrations" },
-  { name: "Redis Cache", layer: "Integrations" },
-  { name: "AWS S3 Adapter", layer: "Integrations" },
-  { name: "Slack & Discord", layer: "Integrations" },
+  { name: "LLM Orchestrator", layer: "Brains", icon: "brain" },
+  { name: "DeepAgent SDK", layer: "Brains", icon: "bot" },
+  { name: "Semantic Memory", layer: "Brains", icon: "database" },
+  { name: "S-Expression Engine", layer: "Brains", icon: "code" },
+  { name: "Context Manager", layer: "Brains", icon: "layers" },
+  { name: "Vector Search", layer: "Brains", icon: "search" },
+  { name: "Distributed Event Bus", layer: "Metal", icon: "radio" },
+  { name: "Managed Authentication", layer: "Metal", icon: "shield" },
+  { name: "Persistent Storage", layer: "Metal", icon: "hard-drive" },
+  { name: "Service Discovery", layer: "Metal", icon: "compass" },
+  { name: "Observability Hub", layer: "Metal", icon: "activity" },
+  { name: "Secret Manager", layer: "Metal", icon: "lock" },
+  { name: "IAM & RBAC", layer: "Metal", icon: "users" },
+  { name: "VPC Networking", layer: "Metal", icon: "network" },
+  { name: "Stripe Connector", layer: "Integrations", icon: "credit-card" },
+  { name: "Twilio Gateway", layer: "Integrations", icon: "phone" },
+  { name: "GitHub Automations", layer: "Integrations", icon: "github" },
+  { name: "Firebase Sync", layer: "Integrations", icon: "flame" },
+  { name: "PostgreSQL Bridge", layer: "Integrations", icon: "database" },
+  { name: "Redis Cache", layer: "Integrations", icon: "zap" },
+  { name: "AWS S3 Adapter", layer: "Integrations", icon: "cloud" },
+  { name: "Slack & Discord", layer: "Integrations", icon: "message-circle" },
 ];
 
 export default function ServicesHome(): ReactNode {
@@ -90,16 +90,6 @@ export default function ServicesHome(): ReactNode {
                 </a>
               </Box>
             </VStack>
-            <Box className="flex-1 max-w-[300px]">
-              <ThemedImage
-                alt="Services Infrastructure Layers"
-                sources={{
-                  light: useBaseUrl('/img/illustrations/Services-Layers-Index-light.svg'),
-                  dark: useBaseUrl('/img/illustrations/Services-Layers-Index-dark.svg'),
-                }}
-                className="w-full drop-shadow-xl"
-              />
-            </Box>
           </HStack>
         </Box>
       </Box>
@@ -147,32 +137,21 @@ export default function ServicesHome(): ReactNode {
       <Box className="w-full bg-[var(--color-surface)]">
         <Box className="site-container py-24">
           <VStack gap="lg" align="center" className="w-full">
-            <HStack gap="xl" className="flex-col lg:flex-row-reverse items-center w-full">
-              <Box className="flex-1 max-w-[400px]">
-                <ThemedImage
-                  alt="Services Catalog Emit Listen Pipeline"
-                  sources={{
-                    light: useBaseUrl('/img/illustrations/Services-Catalog-Index-light.svg'),
-                    dark: useBaseUrl('/img/illustrations/Services-Catalog-Index-dark.svg'),
-                  }}
-                  className="w-full drop-shadow-xl"
-                />
-              </Box>
-              <VStack gap="md" className="flex-1">
-                <Typography variant="h2">
-                  <Translate id="services.catalog.title">Service Catalog</Translate>
-                </Typography>
-                <Typography variant="body" color="muted">
-                  <Translate id="services.catalog.desc">Every service communicates through the event bus. Emit, listen, and compose.</Translate>
-                </Typography>
-              </VStack>
-            </HStack>
+            <VStack gap="md" align="center">
+              <Typography variant="h2">
+                <Translate id="services.catalog.title">Service Catalog</Translate>
+              </Typography>
+              <Typography variant="body" color="muted">
+                <Translate id="services.catalog.desc">Every service communicates through the event bus. Emit, listen, and compose.</Translate>
+              </Typography>
+            </VStack>
             <SimpleGrid cols={4} gap="sm">
               {CATALOG.map((service) => (
-                <Card key={service.name} variant="bordered" padding="sm" className="p-6">
-                  <VStack gap="xs" align="start">
+                <Card key={service.name} variant="bordered" padding="sm" className="p-4">
+                  <VStack gap="sm" align="start">
+                    <Icon name={service.icon} size={18} className="text-accent" />
+                    <Typography variant="body2">{service.name}</Typography>
                     <Badge size="sm">{service.layer}</Badge>
-                    <Typography variant="body">{service.name}</Typography>
                   </VStack>
                 </Card>
               ))}

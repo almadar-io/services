@@ -10,37 +10,43 @@ import {
   Badge,
   Button,
   Card,
+  Icon,
   SimpleGrid,
 } from "@almadar/ui/marketing";
-import ThemedImage from '@theme/ThemedImage';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const SERVICES = [
   {
+    icon: "brain" as const,
     title: "LLM Service",
     description: "Unified API for multiple LLM providers. Automatic model selection based on task complexity. Token-level cost tracking.",
   },
   {
+    icon: "database" as const,
     title: "Memory Manager",
     description: "Persistent conversation memory with semantic retrieval. Agents remember context across sessions and projects.",
   },
   {
+    icon: "timer" as const,
     title: "Session Manager",
     description: "Manages agent sessions with state persistence, timeout handling, and multi-user isolation.",
   },
   {
+    icon: "wand-2" as const,
     title: "Skill Agent",
     description: "Specialized agents for specific tasks: code generation, data modeling, UI design, testing. Composable into workflows.",
   },
   {
+    icon: "bot" as const,
     title: "DeepAgent",
     description: "The orchestration agent. Breaks complex requests into skill chains, manages execution, and assembles results into coherent output.",
   },
   {
+    icon: "wrench" as const,
     title: "Agent Builder",
     description: "Create custom agents with specific skills, prompts, and memory configurations. Deploy them as API endpoints.",
   },
   {
+    icon: "layout" as const,
     title: "UI Builder",
     description: "AI-powered interface generation. Describe a screen, get a production-quality component using the Almadar design system.",
   },
@@ -61,16 +67,6 @@ export default function Brains(): ReactNode {
               <Typography variant="h1">{translate({ id: "brains.hero.title", message: "Brains" })}</Typography>
               <Typography variant="body1" color="muted">{translate({ id: "brains.hero.subtitle", message: "The intelligence layer. LLM orchestration, memory, sessions, and autonomous agents." })}</Typography>
             </VStack>
-            <Box className="flex-1 max-w-[300px]">
-              <ThemedImage
-                alt="AI Brains Services Topology"
-                sources={{
-                  light: useBaseUrl('/img/illustrations/SExpr-light.svg'),
-                  dark: useBaseUrl('/img/illustrations/SExpr-dark.svg'),
-                }}
-                className="w-full drop-shadow-2xl"
-              />
-            </Box>
           </HStack>
         </Box>
       </Box>
@@ -95,6 +91,7 @@ export default function Brains(): ReactNode {
                 {SERVICES.map((service) => (
                   <Card key={service.title} variant="bordered" padding="md" className="p-6">
                     <VStack gap="sm" align="start">
+                      <Icon name={service.icon} size={24} className="text-[var(--color-accent)]" />
                       <Typography variant="h4">{service.title}</Typography>
                       <Typography variant="body2" color="muted">{service.description}</Typography>
                     </VStack>

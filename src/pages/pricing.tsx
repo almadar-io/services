@@ -117,13 +117,14 @@ export default function ServicesPricing(): ReactNode {
                       </HStack>
                     ))}
                   </VStack>
-                  <Spacer />
+                </VStack>
+                <Box className="mt-auto pt-6">
                   <a href={plan.action.href} className="no-underline w-full" target="_blank" rel="noopener noreferrer">
                     <Button variant={plan.highlighted ? "primary" : "secondary"} size="lg" className="w-full">
                       {plan.action.label}
                     </Button>
                   </a>
-                </VStack>
+                </Box>
               </Card>
             ))}
           </SimpleGrid>

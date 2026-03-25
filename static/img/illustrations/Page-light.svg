@@ -18,22 +18,22 @@
   
     <!-- Block 1 -->
     <g transform="translate(200, 380)">
-      <polygon points="0,-40 60,-20 60,80 0,60" fill="#f1f5f9" stroke="#475569" stroke-width="2" opacity="0.8"/>
-      <polygon points="-60,-20 0,-40 0,60 -60,80" fill="#f1f5f9" stroke="#475569" stroke-width="2" opacity="0.6"/>
-      <polygon points="-60,-20 0,-40 60,-20 0,0" fill="#475569" stroke="#475569" stroke-width="2" opacity="0.3"/>
+      <polygon points="0,-40 60,-20 60,80 0,60" fill="#f0f5f1" stroke="#2d6a4f" stroke-width="2" opacity="0.8"/>
+      <polygon points="-60,-20 0,-40 0,60 -60,80" fill="#f0f5f1" stroke="#2d6a4f" stroke-width="2" opacity="0.6"/>
+      <polygon points="-60,-20 0,-40 60,-20 0,0" fill="#2d6a4f" stroke="#2d6a4f" stroke-width="2" opacity="0.3"/>
     </g>
     <!-- Block 2 -->
     <g transform="translate(400, 320)">
-      <polygon points="0,-60 80,-30 80,120 0,90" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2" opacity="0.9"/>
-      <polygon points="-80,-30 0,-60 0,90 -80,120" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2" opacity="0.7"/>
-      <polygon points="-80,-30 0,-60 80,-30 0,0" fill="#0ea5e9" stroke="#0ea5e9" stroke-width="2" opacity="0.4"/>
-      <polygon points="0,-40 20,-30 0,-20 -20,-30" fill="#0ea5e9" filter="url(#glow)"/>
+      <polygon points="0,-60 80,-30 80,120 0,90" fill="#f0f5f1" stroke="#95d5b2" stroke-width="2" opacity="0.9"/>
+      <polygon points="-80,-30 0,-60 0,90 -80,120" fill="#f0f5f1" stroke="#95d5b2" stroke-width="2" opacity="0.7"/>
+      <polygon points="-80,-30 0,-60 80,-30 0,0" fill="#95d5b2" stroke="#95d5b2" stroke-width="2" opacity="0.4"/>
+      <polygon points="0,-40 20,-30 0,-20 -20,-30" fill="#95d5b2" filter="url(#glow)"/>
     </g>
     <!-- Block 3 -->
     <g transform="translate(600, 240)">
-      <polygon points="0,-80 70,-40 70,160 0,120" fill="#f1f5f9" stroke="#475569" stroke-width="2" opacity="0.9"/>
-      <polygon points="-70,-40 0,-80 0,120 -70,160" fill="#f1f5f9" stroke="#475569" stroke-width="2" opacity="0.8"/>
-      <polygon points="-70,-40 0,-80 70,-40 0,0" fill="#cbd5e1" stroke="#475569" stroke-width="2" opacity="0.5"/>
+      <polygon points="0,-80 70,-40 70,160 0,120" fill="#f0f5f1" stroke="#2d6a4f" stroke-width="2" opacity="0.9"/>
+      <polygon points="-70,-40 0,-80 0,120 -70,160" fill="#f0f5f1" stroke="#2d6a4f" stroke-width="2" opacity="0.8"/>
+      <polygon points="-70,-40 0,-80 70,-40 0,0" fill="rgba(45, 106, 79, 0.2)" stroke="#2d6a4f" stroke-width="2" opacity="0.5"/>
     </g>
   
 </svg>

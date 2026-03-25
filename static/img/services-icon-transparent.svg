@@ -3,9 +3,9 @@
 <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <linearGradient id="servicesGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="#94a3b8" />
-            <stop offset="50%" stop-color="#64748b" />
-            <stop offset="100%" stop-color="#475569" />
+            <stop offset="0%" stop-color="#95d5b2" />
+            <stop offset="50%" stop-color="#52b788" />
+            <stop offset="100%" stop-color="#2d6a4f" />
         </linearGradient>
     </defs>
     <!-- Pair 1: 0° -->
