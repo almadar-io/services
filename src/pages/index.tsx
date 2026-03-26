@@ -12,6 +12,7 @@ import {
   Button,
   Icon,
   SimpleGrid,
+  AnimatedReveal,
 } from "@almadar/ui/marketing";
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -98,29 +99,32 @@ export default function ServicesHome(): ReactNode {
       <Box className="w-full">
         <Box className="site-container py-24">
           <VStack gap="lg" align="center" className="w-full">
-            <VStack gap="sm" align="center">
-              <Typography variant="h2">
-                <Translate id="services.layers.title">Three Layers</Translate>
-              </Typography>
-              <Typography variant="body" color="muted">
-                <Translate id="services.layers.subtitle">Intelligence on top, infrastructure in the middle, integrations at the edge.</Translate>
-              </Typography>
-            </VStack>
+            <AnimatedReveal animation="fade-in">
+              <VStack gap="sm" align="center">
+                <Typography variant="h2">
+                  <Translate id="services.layers.title">Three Layers</Translate>
+                </Typography>
+                <Typography variant="body" color="muted">
+                  <Translate id="services.layers.subtitle">Intelligence on top, infrastructure in the middle, integrations at the edge.</Translate>
+                </Typography>
+              </VStack>
+            </AnimatedReveal>
             <SimpleGrid cols={3} gap="md">
-              {LAYERS.map((layer) => (
-                <Card
-                  key={layer.title}
-                  variant="interactive"
-                  padding="md"
-                  className="hover:border-[var(--color-primary)] p-6"
-                  onClick={() => window.open(layer.href, '_blank', 'noopener,noreferrer')}
-                >
-                  <VStack gap="md" align="start">
-                    <Icon name={layer.icon} size="xl" className="text-[var(--color-accent,#06b6d4)]" />
-                    <Typography variant="h4">{layer.title}</Typography>
-                    <Typography variant="body2" color="muted">{layer.description}</Typography>
-                  </VStack>
-                </Card>
+              {LAYERS.map((layer, i) => (
+                <AnimatedReveal key={layer.title} animation="fade-up" delay={i * 100} className="h-full">
+                  <Card
+                    variant="interactive"
+                    padding="md"
+                    className="hover:border-[var(--color-primary)] p-6 h-full"
+                    onClick={() => window.open(layer.href, '_blank', 'noopener,noreferrer')}
+                  >
+                    <VStack gap="md" align="start">
+                      <Icon name={layer.icon} size="xl" className="text-[var(--color-accent,#06b6d4)]" />
+                      <Typography variant="h4">{layer.title}</Typography>
+                      <Typography variant="body2" color="muted">{layer.description}</Typography>
+                    </VStack>
+                  </Card>
+                </AnimatedReveal>
               ))}
             </SimpleGrid>
           </VStack>
@@ -137,23 +141,27 @@ export default function ServicesHome(): ReactNode {
       <Box className="w-full bg-[var(--color-surface)]">
         <Box className="site-container py-24">
           <VStack gap="lg" align="center" className="w-full">
-            <VStack gap="md" align="center">
-              <Typography variant="h2">
-                <Translate id="services.catalog.title">Service Catalog</Translate>
-              </Typography>
-              <Typography variant="body" color="muted">
-                <Translate id="services.catalog.desc">Every service communicates through the event bus. Emit, listen, and compose.</Translate>
-              </Typography>
-            </VStack>
+            <AnimatedReveal animation="fade-in">
+              <VStack gap="md" align="center">
+                <Typography variant="h2">
+                  <Translate id="services.catalog.title">Service Catalog</Translate>
+                </Typography>
+                <Typography variant="body" color="muted">
+                  <Translate id="services.catalog.desc">Every service communicates through the event bus. Emit, listen, and compose.</Translate>
+                </Typography>
+              </VStack>
+            </AnimatedReveal>
             <SimpleGrid cols={4} gap="sm">
-              {CATALOG.map((service) => (
-                <Card key={service.name} variant="bordered" padding="sm" className="p-4">
-                  <VStack gap="sm" align="start">
-                    <Icon name={service.icon} size={18} className="text-accent" />
-                    <Typography variant="body2">{service.name}</Typography>
-                    <Badge size="sm">{service.layer}</Badge>
-                  </VStack>
-                </Card>
+              {CATALOG.map((service, i) => (
+                <AnimatedReveal key={service.name} animation="fade-up" delay={Math.floor(i / 4) * 100} className="h-full">
+                  <Card variant="bordered" padding="sm" className="p-4 h-full">
+                    <VStack gap="sm" align="start">
+                      <Icon name={service.icon} size={18} className="text-accent" />
+                      <Typography variant="body2">{service.name}</Typography>
+                      <Badge size="sm">{service.layer}</Badge>
+                    </VStack>
+                  </Card>
+                </AnimatedReveal>
               ))}
             </SimpleGrid>
           </VStack>
@@ -163,21 +171,23 @@ export default function ServicesHome(): ReactNode {
       {/* CTA Banner */}
       <Box className="w-full bg-[var(--color-surface)]">
         <Box className="site-container py-16">
-          <VStack gap="lg" align="center">
-            <Typography variant="h2" align="center">
-              {translate({ id: "services.waitlist.title", message: "Coming Soon" })}
-            </Typography>
-            <Typography variant="body" color="muted" align="center">
-              {translate({ id: "services.waitlist.text", message: "Almadar Services is in private beta. Join the waitlist to get early access." })}
-            </Typography>
-            <Box className="flex gap-4">
-              <a href="mailto:hello@almadar.io" className="no-underline" target="_blank" rel="noopener noreferrer">
-                <Button variant="primary" size="lg">
-                  {translate({ id: "services.waitlist.cta", message: "Join Waitlist" })}
-                </Button>
-              </a>
-            </Box>
-          </VStack>
+          <AnimatedReveal animation="fade-in">
+            <VStack gap="lg" align="center">
+              <Typography variant="h2" align="center">
+                {translate({ id: "services.waitlist.title", message: "Coming Soon" })}
+              </Typography>
+              <Typography variant="body" color="muted" align="center">
+                {translate({ id: "services.waitlist.text", message: "Almadar Services is in private beta. Join the waitlist to get early access." })}
+              </Typography>
+              <Box className="flex gap-4">
+                <a href="mailto:hello@almadar.io" className="no-underline" target="_blank" rel="noopener noreferrer">
+                  <Button variant="primary" size="lg">
+                    {translate({ id: "services.waitlist.cta", message: "Join Waitlist" })}
+                  </Button>
+                </a>
+              </Box>
+            </VStack>
+          </AnimatedReveal>
         </Box>
       </Box>
     </Layout>
