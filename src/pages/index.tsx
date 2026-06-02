@@ -79,7 +79,10 @@ export default function ServicesHome(): ReactNode {
         <Box className="site-container py-20 relative z-10">
           <HStack gap="xl" className="flex-col lg:flex-row items-center">
             <VStack gap="lg" align="start" className="flex-1">
-              <Badge variant="primary">{translate({ id: "services.hero.tag", message: "Infrastructure" })}</Badge>
+              <HStack gap="sm" align="center">
+                <Badge variant="primary">{translate({ id: "services.hero.tag", message: "Infrastructure" })}</Badge>
+                <Badge variant="warning">{translate({ id: "common.wip", message: "Work in Progress" })}</Badge>
+              </HStack>
               <Typography variant="h1">{translate({ id: "services.hero.title", message: "Infrastructure for the Agentic Era" })}</Typography>
               <Typography variant="body1" color="muted">{translate({ id: "services.hero.subtitle", message: "AI-native compute, storage, and orchestration. Built for applications that agents create and operate." })}</Typography>
               <Box className="flex gap-4 flex-wrap">
