@@ -172,6 +172,31 @@ export function createConfig(opts: SiteConfig): Config {
       ...(opts.plugins || []),
     ],
 
+    // GA4 consent banner (EU opt-in) — shared .almadar.io cookie.
+    clientModules: [path.resolve(__dirname, '../theme/consent-banner.ts')],
+
+    // GA4 with Consent Mode v2 — defaults to denied and is gated by the
+    // consent-banner client module + the shared .almadar.io cookie. The inline
+    // script runs before gtag.js so no analytics cookies/hits fire pre-consent.
+    headTags: [
+      {
+        tagName: 'script',
+        attributes: {},
+        innerHTML:
+          'window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}' +
+          "gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});" +
+          "try{if(document.cookie.split('; ').indexOf('almadar_analytics_consent=granted')!==-1){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}" +
+          "gtag('js',new Date());gtag('config','G-4XLGPPVQ6C',{anonymize_ip:true});",
+      },
+      {
+        tagName: 'script',
+        attributes: {
+          async: 'true',
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-4XLGPPVQ6C',
+        },
+      },
+    ],
+
     presets: [
       [
         "classic",
@@ -179,7 +204,6 @@ export function createConfig(opts: SiteConfig): Config {
           docs: opts.docs === false ? false : (opts.docs || false),
           blog: opts.blog === false ? false : (opts.blog || false),
           theme: { customCss: opts.customCss },
-          gtag: { trackingID: "G-4XLGPPVQ6C", anonymizeIP: true },
         } satisfies Preset.Options,
       ],
     ],
