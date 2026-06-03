@@ -14,6 +14,7 @@
     "deploy": "npx firebase-tools deploy --only hosting --project kflow-b3a39"
   },
   "dependencies": {
+    "@almadar/analytics": "^0.1.0",
     "@almadar/core": "^2.9.0",
     "@almadar/evaluator": "^2.6.0",
     "@almadar/operators": "^2.1.3",

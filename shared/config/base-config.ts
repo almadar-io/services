@@ -173,12 +173,20 @@ export function createConfig(opts: SiteConfig): Config {
     ],
 
     // GA4 consent banner (EU opt-in) — shared .almadar.io cookie.
-    clientModules: [path.resolve(__dirname, '../theme/consent-banner.ts')],
+    clientModules: [
+      path.resolve(__dirname, '../theme/consent-banner.ts'),
+      path.resolve(__dirname, '../theme/analytics.ts'),
+    ],
 
     // GA4 with Consent Mode v2 — defaults to denied and is gated by the
     // consent-banner client module + the shared .almadar.io cookie. The inline
     // script runs before gtag.js so no analytics cookies/hits fire pre-consent.
     headTags: [
+      {
+        tagName: 'script',
+        attributes: {},
+        innerHTML: `window.__ALMADAR_ANALYTICS_ENDPOINT__=${JSON.stringify(process.env.ANALYTICS_ENDPOINT || 'https://almadar-analytics--kflow-b3a39.europe-west4.hosted.app/e')};`,
+      },
       {
         tagName: 'script',
         attributes: {},
