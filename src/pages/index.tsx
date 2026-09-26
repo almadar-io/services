@@ -2,18 +2,7 @@ import React from "react";
 import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import Translate, { translate } from "@docusaurus/Translate";
-import {
-  VStack,
-  HStack,
-  Typography,
-  Box,
-  Card,
-  Badge,
-  Button,
-  Icon,
-  SimpleGrid,
-  AnimatedReveal,
-} from "@almadar/ui/marketing";
+import { VStack, HStack, Typography, Box, Card, Badge, Button, Icon, SimpleGrid, AnimatedReveal } from '@almadar/ui/ssr';
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { OrbitalHeroBackground } from "../components/OrbitalHeroBackground";

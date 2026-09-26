@@ -1,7 +1,7 @@
 import React from 'react';
 import { useThemeConfig } from '@docusaurus/theme-common';
-import { MarketingFooter } from '@almadar/ui/marketing';
-import type { FooterLinkColumn } from '@almadar/ui/marketing';
+import { SiteFooter } from '../../components/sections';
+import type { FooterLinkColumn } from '../../components/sections';
 
 function Footer(): React.JSX.Element | null {
   const { footer } = useThemeConfig();
@@ -16,7 +16,7 @@ function Footer(): React.JSX.Element | null {
   }));
 
   return (
-    <MarketingFooter
+    <SiteFooter
       columns={columns}
       copyright={footer.copyright}
     />

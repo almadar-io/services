@@ -3,19 +3,7 @@ import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import { translate } from "@docusaurus/Translate";
 import { Check } from "lucide-react";
-import {
-  Box,
-  VStack,
-  HStack,
-  Typography,
-  Button,
-  Badge,
-  Card,
-  Icon,
-  Divider,
-  Spacer,
-  SimpleGrid,
-} from "@almadar/ui/marketing";
+import { Box, VStack, HStack, Typography, Button, Badge, Card, Icon, Divider, Spacer, SimpleGrid } from '@almadar/ui/ssr';
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 

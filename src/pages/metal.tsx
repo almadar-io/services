@@ -2,17 +2,7 @@ import React from "react";
 import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import Translate, { translate } from "@docusaurus/Translate";
-import {
-  Box,
-  VStack,
-  HStack,
-  Typography,
-  Badge,
-  Button,
-  Card,
-  Icon,
-  SimpleGrid,
-} from "@almadar/ui/marketing";
+import { Box, VStack, HStack, Typography, Badge, Button, Card, Icon, SimpleGrid } from '@almadar/ui/ssr';
 
 const SERVICES = [
   {
